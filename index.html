@@ -40,39 +40,171 @@
 <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
 <br>
 <p>
-<h1>md2reveal</h1>python tool to convert extended markdown to reveal.js</p>
+<h1>The Joy Of (Quantifying) Sex</h1>A spoonful of sex helps the statistics go down.<br>Will Dampier, PhD</p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide" id="formating">
+<section class="vertical-slide" >
 <p>
-<h2>slide control</h2></p>
-<pre><code class=python>====  horizontal slide
-====* vertical slide
-====+ slide pause
-==== [name] named slide, useful for linking</code></pre>
-<br>
-<p>
-<h2>text formatting</h2></p>
-<pre><code class=python>#      h1     (headers) 
-##     h2     (headers) etc for h6
-*text* strong (bold)
-_text_ emph   (italics)
-$LaTeX$ LaTeX rendered to SVG
-       four spaces or \t is a code block</code></pre>
+<div display='inline' align='left'><h2>Quantification Topics</h2></div></p>
 </section><section class="vertical-slide" >
 <p>
-<h3>images</h3></p>
-<pre><code class=python>!(image src)[optional image link] <<options>>
-...
-!(cc.svg) <<width:200>> <<transparent>></code></pre>
-<img class="" src="cc.svg" width="200">
+<div display='inline' align='left'><h2>Stress</h2></div></p>
+<br>
+<p>
+<div display='inline' align='left'>Work is the main source of my stress.</div></p>
+<br>
+<p>
+Use python <code>imaplib</code> to parse emails from work contacts.</p>
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Sexual Satisfaction</h2></div></p>
+<br>
+<p>
+<div display='inline' align='left'>Sexual satisfaction was tracked during relationships with my three long-term relationships using numerous collection techniques.</div></p>
+<br>
+<p>
+Use python and <code>statsmodels</code> to find patterns in which <em>tags</em> I gave to each encounter.</p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Gmail Access</h2></div></p>
+<br>
+<p>
+Pretty dang easy!</p>
+<pre><code class=python>import imaplib
+imap_server = imaplib.IMAP4_SSL("imap.gmail.com",993)
+imap_server.login('judowill', open('SUPERSECRET.txt').read())
+imap_server.select('[Gmail]/All Mail')</code></pre>
+<br>
+<pre><code class=python>def get_emails_person(address):
+    search = '(OR (TO "%(name)s") (FROM "%(name)s"))'
+    status, response = imap_server.search(None, search % {'name':address})
+    ids = response[0].split()
+    for _id in ids:
+        yield _id</code></pre>
+<br>
+<pre><code class=python>def get_date_from_ids(ids):
+    resp, data = imap_server.FETCH(','.join(ids), 'RFC822.HEADER')
+    id_iter = iter(ids)
+    for d in data:
+        msg = email.message_from_string(d[1])
+        date = dateutil.parser.parse(msg['DATE'])
+        yield id_iter.next(), date</code></pre>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Emails Per Week</h2></div></p>
+<img class="" src="figures/EmailsPerWeek.png" width="1000">
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>What about scale</h2></div>It actually seems like <em>hard</em> weeks get easier. This feels more realistic.</p>
+<br>
+<img class="" src="figures/ExpandingMax.png" width="1000">
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Putting it together</h2></div></p>
+<br>
+<img class="" src="figures/EmailsPlusStress.png" width="1000">
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Sex Quantification</h2></div></p>
+<pre><code class=python>import pandas as pd
+
+sex_data = pd.read_csv('projectdata/willdata.tsv', 
+            sep = '\t', 
+            parse_dates = [0], 
+            index_col=0)
+stress_data = pd.read_csv('results/stress.tsv', sep = '\t', parse_dates = [0])
+final_data = pd.merge(sex_data, stress_data.groupby('nDateTime')[['Stress']].first(),
+                      left_index=True, 
+                      right_index = True,
+                      how = 'left')
+final_data.head()</code></pre>
+<br>
+<img class="" src="images/DataCollection.png" >
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Frequency</h2></div></p>
+<br>
+<img class="" src="figures/frequency.png" >
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Crazy Statistics</h2></div></p>
+<br>
+<p>
+Use Linear Models to find the effect of the variables on both my and her rankings.</p>
+<br>
+<p>
+This is trivially accomplished using <code>statsmodels</code>.</p>
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h3>Linear Models</h3></div></p>
+<br>
+<pre><code class=python>import statsmodels.formula.api as smf
+eqn = 'HerRanking ~ PreOrgs + missionary + doggy + cowgirl + reversecowgirl + kinky + Stress'
+res = smf.ols(eqn, data = final_data).fit()
+res.summary()</code></pre>
+<br>
+<img class="" src="images/RegressionSummary.png" >
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h2>Observation</h2></div></p>
+<br>
+<p>
+Stress is not correlated with her statisfaction or mine.</p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h3>CCPR Plot</h3></div>A way to show the effect of an indepedent variable on the response variable after subtracting the effect of other items in the model.</p>
 <br>
 <br>
 <p>
-<h3>links</h3></p>
-<pre><code class=python>[link text](link src)</code></pre>
+<a href="http://en.wikipedia.org/wiki/Partial_residual_plot">Wikipedia Partial Residual Plots</a></p>
+</section><section class="vertical-slide" >
+<img class="" src="figures/position_preference.png" >
+</section><section class="vertical-slide" >
+<img class="" src="images/pre_org_preference.png" >
+</section><section class="vertical-slide" >
+<img class="" src="images/cowgirl_preference.png" >
+</section><section class="vertical-slide" >
+<img class="" src="images/stress_preference.png" >
+</section><section class="vertical-slide" >
+<img class="" src="figures/effect_heatmap.png" >
+</section><section class="vertical-slide" >
 <p>
-For example <a href="https://www.google.com">google</a>,<br>or <a href="#/formating">formating page</a></p>
+<div display='inline' align='left'><h2>Observation</h2></div></p>
+<br>
+<p>
+Different strokes for different folks.</p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h3>Want to do an analysis like this?</h3></div></p>
+<br>
+<p>
+This is all on Github.</p>
+<br>
+<p>
+<a href="http://github.com/judowill/sextalk/">http://github.com/judowill/sextalk/</a><br><a href="http://judowill.github.io/sextalk/">http://judowill.github.io/sextalk/</a></p>
+</section><section class="vertical-slide" >
+<p>
+<div display='inline' align='left'><h3>How were these slides made?</h3></div></p>
+<br>
+<p>
+<div display='inline' align='left'><h3>JavaScript : <a href="http://hakim.se/projects/reveal-js">reveal.js</a></h3></div><div display='inline' align='left'><h3>Markdown : <a href="http://daringfireball.net/">Daring Fireball</a></h3></div></p>
+<br>
+<hr>
+<br>
+<p>
+<div display='inline' align='left'><h3>Markdown to HTML: <a href="https://github.com/thoppe/md2reveal">md2reveal.py</a></h3></div><div display='inline' align='left'><em> (Written by a former Judo student of mine)</em></div></p>
 </section>
 </section>
     </div></div>

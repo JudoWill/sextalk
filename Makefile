@@ -1,8 +1,13 @@
-all:
-	@echo pass
-demo:
-	python md2reveal.py demo.md --output demo.html --verbose
+python_exec    = python
+md2reveal_exec = md2reveal.py
+title  = "PhillyQS: Sex Talk"
+author = "Will Dampier"
+target = "SexTalk.md"
 
+args = --html_title $(title) --html_author $(author)
+
+all:
+	$(python_exec) $(md2reveal_exec) $(target) --output index.html $(args)
 commit:
 	@-make push
 

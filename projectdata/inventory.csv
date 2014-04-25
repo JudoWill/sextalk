@@ -1,3 +1,0 @@
-#All data MUST have a record in this file! All fields MUST be filled!
-Path,Source,DateObtained,Description
-projectdata/inventory.tsv,Boilerplate,NA,An inventory of data files for this project.

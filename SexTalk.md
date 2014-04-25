@@ -11,9 +11,7 @@ Will Dampier, PhD
 
 |## Stress
 
-|Work is the main source of my stress.
-
-Use python `imaplib` to parse emails from work contacts.
+|Use python `imaplib` to parse emails from work contacts.
 
 ====*
 
@@ -21,7 +19,7 @@ Use python `imaplib` to parse emails from work contacts.
 
 |Sexual satisfaction was tracked during relationships with my three long-term relationships using numerous collection techniques.
 
-Use python and `statsmodels` to find patterns in which _tags_ I gave to each encounter.
+|Use python and `statsmodels` to find patterns in which _tags_ I gave to each encounter.
 
 ====
 
@@ -94,9 +92,9 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 
 |## Crazy Statistics
 
-Use Linear Models to find the effect of the variables on both my and her rankings. 
+|Use Linear Models to find the effect of the variables on both my and her rankings. 
 
-This is trivially accomplished using `statsmodels`.
+|This is trivially accomplished using `statsmodels`.
 
 ====*
 
@@ -113,12 +111,12 @@ This is trivially accomplished using `statsmodels`.
 
 |## Observation
 
-Stress is not correlated with her statisfaction or mine.
+|Stress is *not* correlated with her statisfaction or mine.
 
 ====
 
 |###CCPR Plot
-A way to show the effect of an indepedent variable on the response variable after subtracting the effect of other items in the model.
+|A way to show the effect of an indepedent variable on the response variable after subtracting the effect of other items in the model.
 
 
 [Wikipedia Partial Residual Plots](http://en.wikipedia.org/wiki/Partial_residual_plot)

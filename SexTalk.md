@@ -71,7 +71,7 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 
   1. Daytum
   2. TrackThisForMe
-  3. Google Spreadsheets
+  3. [Google Spreadsheets](https://docs.google.com/forms/d/1luj2Amz7tBlg1ogf5bWjnfMhlzxvG7LBpT73Sxs3lTk/viewform)
 
 ====*
 

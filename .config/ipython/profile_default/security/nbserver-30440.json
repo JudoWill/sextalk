@@ -1,0 +1,8 @@
+{
+  "secure": false, 
+  "url": "http://127.0.0.1:8892/sextalk/", 
+  "hostname": "localhost", 
+  "base_url": "/sextalk/", 
+  "notebook_dir": "/home/will/Projects/sextalk", 
+  "port": 8892
+}

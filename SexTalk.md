@@ -1,4 +1,4 @@
-{"theme":"night.css"}
+{"theme":"one_moz.css"}
 
 # The Joy Of (Quantifying) Sex
 A spoonful of sex helps the statistics go down.
@@ -125,23 +125,32 @@ A way to show the effect of an indepedent variable on the response variable afte
 
 ====*
 
+## Data Dump
+
 !(figures/position_preference.png)
 
 ====*
 
+## _Foreplay_ orgasms
 
 !(images/pre_org_preference.png)
 
 
 ====*
 
+## Cowgirl
+
 !(images/cowgirl_preference.png)
 
 ====*
 
+## Stress
+
 !(images/stress_preference.png)
 
 ====*
+
+## Summary
 
 !(figures/effect_heatmap.png)
 

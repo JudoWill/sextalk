@@ -7,6 +7,7 @@ Will Dampier, PhD
 ====
 
 |## Quantification Topics
+
 ====*
 
 |## Stress
@@ -16,8 +17,6 @@ Will Dampier, PhD
 ====*
 
 |## Sexual Satisfaction
-
-|Sexual satisfaction was tracked during relationships with my three long-term relationships using numerous collection techniques.
 
 |Use python and `statsmodels` to find patterns in which _tags_ I gave to each encounter.
 
@@ -49,20 +48,20 @@ Pretty dang easy!
 ====
 
 |## Emails Per Week
-!(figures/EmailsPerWeek.png)<<width:1000>>
+!(figures/EmailsPerWeek.png)
 
 ====*
 
 |## What about scale
 It actually seems like _hard_ weeks get easier. This feels more realistic.
 
-!(figures/ExpandingMax.png)<<width:1000>>
+!(figures/ExpandingMax.png)
 
 ====* 
 
 |## Putting it together
 
-!(figures/EmailsPlusStress.png)<<width:1000>>
+!(figures/EmailsPlusStress.png)
 
 ====
 
@@ -81,8 +80,8 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 |I track 3 main things:
 
   1. Activities
-  2. My Satisfaction
-  3. Her Satisfaction
+  2. My Satisfaction (0-10)
+  3. Her Satisfaction (0-10) _inferred_
 
 |I enter data shortly afterwards. I then enter the _again_ data the next morning. Results shown are averages of the two points.
 
@@ -144,28 +143,27 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 
 ====*
 
-## Data Dump
+## Stress
 
-!(figures/position_preference.png)
+!(figures/preference_Stress.png)
 
 ====*
 
 ## _Foreplay_ orgasms
 
-!(images/pre_org_preference.png)
-
+!(figures/preference_PreOrgs.png)
 
 ====*
 
 ## Cowgirl
 
-!(images/cowgirl_preference.png)
+!(figures/preference_cowgirl.png)
 
 ====*
 
-## Stress
+## Booze
 
-!(images/stress_preference.png)
+!(figures/preference_booze.png)
 
 ====*
 

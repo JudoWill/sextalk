@@ -67,6 +67,28 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 ====
 
 |## Sex Quantification
+
+|I've tried multiple tools for keeping the data.
+
+  1. Daytum
+  2. TrackThisForMe
+  3. Google Spreadsheets
+
+====*
+
+|## Data Collection
+
+|I track 3 main things:
+
+  1. Activities
+  2. My Satisfaction
+  3. Her Satisfaction
+
+|I enter data shortly afterwards. I then enter the _again_ data the next morning. Results shown are averages of the two points.
+
+====*
+
+|## Sex Quantification
 	import pandas as pd
 	
 	sex_data = pd.read_csv('projectdata/willdata.tsv', 
@@ -115,9 +137,8 @@ It actually seems like _hard_ weeks get easier. This feels more realistic.
 
 ====
 
-|###CCPR Plot
+|###Partial Residual Plot
 |A way to show the effect of an indepedent variable on the response variable after subtracting the effect of other items in the model.
-
 
 [Wikipedia Partial Residual Plots](http://en.wikipedia.org/wiki/Partial_residual_plot)
 
